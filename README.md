@@ -35,3 +35,5 @@ Import com.illuzor.sharingextension.SharingExtension;
 3) Dispose. If you don`t need extension after use, dispose it:
 
 	SharingExtension.dispose();
+	
+Demo app - http://clck.ru/4Jj0c
