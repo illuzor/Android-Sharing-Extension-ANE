@@ -36,4 +36,4 @@ Import com.illuzor.sharingextension.SharingExtension;
 
 	SharingExtension.dispose();
 	
-Demo app - http://clck.ru/4Jj0c
+Demo app - http://yadi.sk/d/Se_LR8fm1lgsD
