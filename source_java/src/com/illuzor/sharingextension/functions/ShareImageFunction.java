@@ -15,7 +15,7 @@ public class ShareImageFunction implements FREFunction {
 			
 			Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 			sharingIntent.setType("image/*");
-			sharingIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(imagePath));
+			sharingIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + imagePath));
 			context.getActivity().startActivity(Intent.createChooser(sharingIntent, title));
 		} catch (Exception e) {
 			e.printStackTrace();
