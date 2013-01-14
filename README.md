@@ -20,8 +20,8 @@ Import com.illuzor.sharingextension.SharingExtension;
 	
 	var bitmap:Bitmap = ...;
 	
-	// encoding image by BloodyCrypto lib - http://www.blooddy.by/en/crypto/
-	var bitmapBytes:ByteArray = JPEGEncoder.encode((new ImageForSharingClass() as Bitmap).bitmapData));
+	// encoding image by native encoder (FP 11.3/AIR 3.3 or newer)
+	var bitmapBytes:ByteArray = bitmap.bitmapData.encode(new Rectangle(0, 0, bitmap.width, bitmap.height), new JPEGEncoderOptions(70)));
 	
 	var file:File = File.documentsDirectory.resolvePath("image_for_share.jpg");
 	
