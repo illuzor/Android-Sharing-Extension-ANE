@@ -37,3 +37,5 @@ Import com.illuzor.sharingextension.SharingExtension;
 	SharingExtension.dispose();
 	
 Demo app - http://yadi.sk/d/Se_LR8fm1lgsD
+
+![demoAppQR.gif](http://download.illuzor.com/images/github/ane/demoAppQR.gif)
