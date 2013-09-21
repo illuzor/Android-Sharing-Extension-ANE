@@ -30,7 +30,7 @@ Import com.illuzor.sharingextension.SharingExtension;
 	stream.writeBytes(fileBytes);
 	stream.close();
 	
-	SharingExtension.shareImage(file, "Choser title"));
+	SharingExtension.shareImage(file, "Choser title", "Message"));
 	
 3) Dispose. If you don`t need extension after use, dispose it:
 
