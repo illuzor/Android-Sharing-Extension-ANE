@@ -21,10 +21,10 @@ package com.illuzor.sharingextension {
 			context.call("shareText", title, message);
 		}
 		
-		public static function shareImage(imageFile:File, title:String):void {
+		public static function shareImage(imageFile:File, title:String, message:String = ""):void {
 			if (!context) init();
 			if (imageFile.exists) {
-				context.call("shareImage", imageFile.nativePath, title);
+				context.call("shareImage", imageFile.nativePath, title, message);
 			} else {
 				throw new Error("File " + imageFile.nativePath + " not exists");
 			}
