@@ -1,1 +1,1 @@
-﻿com.illuzor.extensions.SharingExtension
+com.illuzor.extensions.SharingExtension
