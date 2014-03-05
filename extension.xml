@@ -1,4 +1,4 @@
-<extension xmlns="http://ns.adobe.com/air/extension/3.9">
+<extension xmlns="http://ns.adobe.com/air/extension/4.0">
 	<id>com.illuzor.extensions.SharingExtension</id>
 	<versionNumber>1</versionNumber>
 	<platforms>
@@ -9,5 +9,8 @@
 				<finalizer>com.illuzor.sharingextension.SharingExtension</finalizer>
 			</applicationDeployment>
 		</platform>
+		<platform name="default"> 
+            <applicationDeployment/> 
+        </platform> 
 	</platforms>
 </extension>

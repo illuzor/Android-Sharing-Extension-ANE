@@ -1,6 +1,6 @@
 <project name="Android-Sharing-Extension-ANE" default="main">
 
-	<!-- Using Flex SDK 4.11, AIR SDK 3.9, JDK 1.7 u45 and JDK 1.6 u45 -->
+	<!-- Using Flex SDK 4.11, AIR SDK 4.0, JDK 1.7 u45 and JDK 1.6 u45 -->
 
 	<property name="FLEX_HOME" value="C:/Program Files (x86)/FlexSDK/4.11.0/"/>  <!-- Write your Flex SDK path-->
 	<property name="android.lib" value="C:/Program Files (x86)/Android SDK/sdk/platforms/android-18/android.jar" /> <!-- Write your android.jar path-->
@@ -41,7 +41,7 @@
 			failonerror="true"
 			use-network="false"
 			debug="false"
-			swf-version="22"
+			swf-version="23"
             output="temp/libs/sharingExtLib.swc"
             include-classes="com.illuzor.sharingextension.SharingExtension">
 			<load-config filename="${FLEX_HOME}/frameworks/air-config.xml" />
@@ -67,9 +67,8 @@
 			<arg line="-swc"/>
 			<arg line="temp/ane/sharingExtLib.swc"/>
 			<arg line="-platform Android-ARM -C temp/ane/android/ ."/>
-			<arg line="-platform default -C temp/ane/default/"/>
+			<arg line="-platform default -C temp/ane/default/ ."/>
 		</exec>
-		<move file="temp/ane/sharingExtLib.swc" tofile="ane_ready_for_use/sharingExtLib.swc"/>
 		<echo file="ane_ready_for_use/extension_id.txt">${extension.id}</echo>
 		<delete dir="temp"/>
 		<echo message="Your extension located in ane_ready_for_use folder."/>

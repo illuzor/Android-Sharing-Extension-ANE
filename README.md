@@ -7,6 +7,8 @@ Features:
 	- share text
 	- share image
 	
+Important! Be shure, that you are using latest version of AIR SDK. This ANE builded for 4.0
+	
 How to use:
 
 Connect com.illuzor.extensions.SharingExtension.ane file to your android air project.
