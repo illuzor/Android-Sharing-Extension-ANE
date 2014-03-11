@@ -62,7 +62,7 @@
 			<arg value="-package"/>
 			<arg value="-target"/>
 			<arg value="ane"/>
-			<arg value="ane_ready_for_use/com.illuzor.extensions.SharingExtension.ane"/>
+			<arg value="ane_ready_for_use/${extension.id}.ane"/>
 			<arg value="temp/ane/extension.xml"/>
 			<arg line="-swc"/>
 			<arg line="temp/ane/sharingExtLib.swc"/>
