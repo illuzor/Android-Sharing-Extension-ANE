@@ -1,8 +1,15 @@
-<extension xmlns="http://ns.adobe.com/air/extension/4.0">
+<extension xmlns="http://ns.adobe.com/air/extension/14.0">
 	<id>com.illuzor.extensions.SharingExtension</id>
 	<versionNumber>1</versionNumber>
 	<platforms>
 		<platform name="Android-ARM">
+			<applicationDeployment>
+				<nativeLibrary>sharingExtLib.jar</nativeLibrary>
+				<initializer>com.illuzor.sharingextension.SharingExtension</initializer>
+				<finalizer>com.illuzor.sharingextension.SharingExtension</finalizer>
+			</applicationDeployment>
+		</platform>
+		<platform name="Android-x86">
 			<applicationDeployment>
 				<nativeLibrary>sharingExtLib.jar</nativeLibrary>
 				<initializer>com.illuzor.sharingextension.SharingExtension</initializer>
