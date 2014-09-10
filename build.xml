@@ -1,8 +1,8 @@
 <project name="Android-Sharing-Extension-ANE" default="main">
 
-	<!-- Using Flex SDK 4.12.1, AIR SDK 14.0, JDK 1.7 u45 and JDK 1.6 u45 -->
+	<!-- Using Flex SDK 4.13.0, AIR SDK 15.0, JDK 1.7 u45 and JDK 1.6 u45 -->
 
-	<property name="FLEX_HOME" value="C:/Program Files (x86)/FlexSDK/4.12.1/"/>  <!-- Write your Flex SDK path-->
+	<property name="FLEX_HOME" value="C:/Program Files (x86)/FlexSDK/4.13.0/"/>  <!-- Write your Flex SDK path-->
 	<property name="android.lib" value="C:/Program Files (x86)/Android SDK/sdk/platforms/android-18/android.jar" /> <!-- Write your android.jar path-->
 	<property name="java_rt.lib" value="C:/Program Files (x86)/Java/jdk1.6.0_45/jre/lib/rt.jar" /> <!-- Write your JDK 1.6 rt.jar path-->
 	<property name="fre.lib" value="${FLEX_HOME}/lib/android/FlashRuntimeExtensions.jar" />
