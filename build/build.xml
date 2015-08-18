@@ -1,0 +1,82 @@
+<project name="Android-Sharing-Extension-ANE" default="main"  basedir="..">
+
+	<!-- 
+	Warning! Adobe Native Extensions not supported JDK 1.7/1.8 correctly.
+	Necessary to additionaly install JDK 1.6
+	-->
+	
+	<!-- Using AIR SDK 18 and JDK 1.6 u45 -->
+	
+	<property file="build/build.config"/>
+	
+	<property name="fre.lib" value="${flex.home}/lib/android/FlashRuntimeExtensions.jar" />
+	<property name="compc" value="${flex.home}/lib/compc-cli.jar" />
+	<property name="adt" value="${flex.home}/bin/adt.bat" />
+	<property name="java.classes" value="source_java/src/" />
+	<property name="as.classes" value="source_as3/" />
+	<property name="extension.id" value="com.illuzor.extensions.SharingExtension" />
+	
+	<target name="make.dirs" description="Making temp folders">
+		<delete dir="bin"/>
+		<mkdir dir="bin"/>
+		<mkdir dir="temp"/>
+		<mkdir dir="temp/java_classes/"/>
+		<mkdir dir="temp/libs/"/>
+		<mkdir dir="temp/ane/"/>
+		<mkdir dir="temp/ane/android/"/>
+		<mkdir dir="temp/ane/default/"/>
+	</target>
+	
+	<target name="compile.jar" description="Making jar lib">
+		<javac compiler="javac1.6"
+			source="1.6"
+			target="1.6"
+			bootclasspath="${java_rt.lib}"
+			failonerror="true"
+			srcdir="${java.classes}"
+			destdir="temp/java_classes"
+			classpath="${fre.lib}:${android.lib}"
+			includeantruntime="false">
+		</javac>
+		<jar basedir="temp/java_classes" destfile="temp/ane/android/sharingExtLib.jar"/>
+	</target>
+	
+	<target name="compile.swc" description="Making swc lib">
+		<java jar="${compc}" fork="true" failonerror="true">
+			<arg value="-load-config=${flex.home}/frameworks/air-config.xml"/>
+			<arg value="-swf-version=29"/>
+			<arg value="-source-path+=${as.classes}"/>
+			<arg value="-include-sources+=${as.classes}"/>
+			<arg value="-output=temp/libs/sharingExtLib.swc"/>
+		</java>
+	</target>
+	
+	<target name="copy.files" description="Files operations">
+		<unzip src="temp/libs/sharingExtLib.swc" dest="temp/libs/"/>
+		<copy file="extension.xml" tofile="temp/ane/extension.xml"/>
+		<copy file="temp/libs/library.swf" tofile="temp/ane/android/library.swf"/>
+		<move file="temp/libs/library.swf" tofile="temp/ane/default/library.swf"/>
+		<move file="temp/libs/sharingExtLib.swc" tofile="temp/ane/sharingExtLib.swc"/>
+	</target>
+
+	<target name="build.ane" description="Making ane file">
+		<exec executable="${adt}" failonerror="true">
+			<arg value="-package"/>
+			<arg value="-target"/>
+			<arg value="ane"/>
+			<arg value="bin/${extension.id}.ane"/>
+			<arg value="temp/ane/extension.xml"/>
+			<arg line="-swc"/>
+			<arg line="temp/ane/sharingExtLib.swc"/>
+			<arg line="-platform Android-ARM -C temp/ane/android/ ."/>
+			<arg line="-platform Android-x86 -C temp/ane/android/ ."/>
+			<arg line="-platform default -C temp/ane/default/ ."/>
+		</exec>
+		<echo file="bin/extension_id.txt">${extension.id}</echo>
+		<delete dir="temp"/>
+		<echo message="Your extension located in bin folder."/>
+	</target>
+
+	<target name="main" description="Run all targets" depends="make.dirs, compile.jar, compile.swc, copy.files, build.ane" />
+
+</project>
