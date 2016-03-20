@@ -1,12 +1,5 @@
 <project name="Android-Sharing-Extension-ANE" default="main"  basedir="..">
 
-	<!-- 
-	Warning! Adobe Native Extensions not supported JDK 1.7/1.8 correctly.
-	Necessary to additionaly install JDK 1.6
-	-->
-	
-	<!-- Using AIR SDK 18 and JDK 1.6 u45 -->
-	
 	<property file="build/build.config"/>
 	
 	<property name="fre.lib" value="${flex.home}/lib/android/FlashRuntimeExtensions.jar" />
@@ -28,10 +21,9 @@
 	</target>
 	
 	<target name="compile.jar" description="Making jar lib">
-		<javac compiler="javac1.6"
-			source="1.6"
-			target="1.6"
-			bootclasspath="${java_rt.lib}"
+		<javac compiler="javac1.7"
+			source="1.7"
+			target="1.7"
 			failonerror="true"
 			srcdir="${java.classes}"
 			destdir="temp/java_classes"
@@ -44,7 +36,7 @@
 	<target name="compile.swc" description="Making swc lib">
 		<java jar="${compc}" fork="true" failonerror="true">
 			<arg value="-load-config=${flex.home}/frameworks/air-config.xml"/>
-			<arg value="-swf-version=29"/>
+			<arg value="-swf-version=32"/>
 			<arg value="-source-path+=${as.classes}"/>
 			<arg value="-include-sources+=${as.classes}"/>
 			<arg value="-output=temp/libs/sharingExtLib.swc"/>

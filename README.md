@@ -7,7 +7,7 @@ Features:
 	- share text
 	- share image
 	
-Important! Be shure you are using latest version of AIR SDK. This ANE builded for 18
+Important! Be shure you are using latest version of AIR SDK. This ANE builded for 21
 	
 How to use:
 
@@ -22,7 +22,7 @@ Import com.illuzor.sharingextension.SharingExtension;
 	
 	var bitmap:Bitmap = ...;
 	
-	// encoding image by native encoder (FP 11.3/AIR 3.3 or newer)
+	// encoding image by native encoder (availible on FP 11.3/AIR 3.3 or newer)
 	var bitmapBytes:ByteArray = bitmap.bitmapData.encode(new Rectangle(0, 0, bitmap.width, bitmap.height), new JPEGEncoderOptions(70)));
 	
 	var file:File = File.documentsDirectory.resolvePath("image_for_share.jpg");

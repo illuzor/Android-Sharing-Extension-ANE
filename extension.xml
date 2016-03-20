@@ -1,4 +1,4 @@
-<extension xmlns="http://ns.adobe.com/air/extension/18.0">
+<extension xmlns="http://ns.adobe.com/air/extension/21.0">
 	<id>com.illuzor.extensions.SharingExtension</id>
 	<versionNumber>1</versionNumber>
 	<platforms>
